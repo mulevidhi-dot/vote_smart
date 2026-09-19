@@ -241,3 +241,9 @@ def admin():
 if __name__ == "__main__":
     init_db()
     app.run(debug=True)
+# Initialize database tables on startup (runs for both local and Render)
+with app.app_context():
+    init_db()
+
+if __name__ == "__main__":
+    app.run(debug=True)
