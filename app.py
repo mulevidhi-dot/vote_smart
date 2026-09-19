@@ -238,10 +238,7 @@ def admin():
     )
 
 
-if __name__ == "__main__":
-    init_db()
-    app.run(debug=True)
-# Initialize database tables on startup (runs for both local and Render)
+# Place this before the main block so Gunicorn calls it on Render
 with app.app_context():
     init_db()
 
