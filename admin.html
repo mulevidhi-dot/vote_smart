@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - VoteSmart</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<section class="features">
+
+    <h1>
+        🔐 Admin Dashboard
+    </h1>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📊
+            </div>
+
+            <h3>
+                Survey Responses
+            </h3>
+
+            <h2>
+                {{ survey_count }}
+            </h2>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🧠
+            </div>
+
+            <h3>
+                Quiz Attempts
+            </h3>
+
+            <h2>
+                {{ quiz_count }}
+            </h2>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                💬
+            </div>
+
+            <h3>
+                Feedback
+            </h3>
+
+            <h2>
+                {{ feedback_count }}
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <br><br>
+
+    <h2>
+        Quiz Results
+    </h2>
+
+    <br>
+
+
+    {% for result in results %}
+
+    <div class="feature-card">
+
+        <h3>
+            {{ result["name"] }}
+        </h3>
+
+        <p>
+            Score:
+            <strong>
+                {{ result["score"] }}/{{ result["total"] }}
+            </strong>
+        </p>
+
+        <p>
+            {{ result["created_at"] }}
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+
+</section>
+
+</body>
+
+</html>

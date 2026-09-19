@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Community Survey - VoteSmart</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🗳️ VoteSmart
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+        <a href="/survey">Survey</a>
+
+    </div>
+
+</nav>
+
+
+<section class="features">
+
+    <h1>📊 Community Survey</h1>
+
+    {% if submitted %}
+
+        <div class="hero-card">
+
+            <h2>
+                ✅ Thank You!
+            </h2>
+
+            <p>
+                Your response has been recorded successfully.
+            </p>
+
+            <br>
+
+            <a href="/"
+               class="btn primary">
+                Back to Home
+            </a>
+
+        </div>
+
+    {% else %}
+
+    <form method="POST">
+
+        <div class="feature-card">
+
+            <h3>Age Group</h3>
+
+            <select name="age_group"
+                    required
+                    style="padding:10px;width:100%;">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option>18-20</option>
+                <option>21-25</option>
+                <option>26-35</option>
+                <option>36-50</option>
+                <option>50+</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h3>
+                Are you aware of the voter registration process?
+            </h3>
+
+            <p>
+                <input type="radio"
+                       name="registration_awareness"
+                       value="Yes"
+                       required>
+                Yes
+            </p>
+
+            <p>
+                <input type="radio"
+                       name="registration_awareness"
+                       value="No">
+                No
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h3>
+                Do you understand the importance of voting?
+            </h3>
+
+            <p>
+                <input type="radio"
+                       name="voting_awareness"
+                       value="Yes"
+                       required>
+                Yes
+            </p>
+
+            <p>
+                <input type="radio"
+                       name="voting_awareness"
+                       value="No">
+                No
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h3>
+                Do you know where to find official election information?
+            </h3>
+
+            <p>
+                <input type="radio"
+                       name="official_source_awareness"
+                       value="Yes"
+                       required>
+                Yes
+            </p>
+
+            <p>
+                <input type="radio"
+                       name="official_source_awareness"
+                       value="No">
+                No
+            </p>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="btn primary">
+
+            Submit Survey
+
+        </button>
+
+    </form>
+
+    {% endif %}
+
+</section>
+
+</body>
+
+</html>
